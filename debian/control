@@ -1,0 +1,23 @@
+Source: msbuild-roslyn
+Section: devel
+Priority: optional
+Maintainer: EoflaOE <eoflaoevicecity@gmail.com>
+Build-Depends: debhelper (>=7.0.50~), mono-devel (>= 4.0), cli-common-dev,
+	unzip, libunwind8-dev, libicu-dev, ca-certificates-mono,
+	libcurl4-openssl-dev, coreutils, locales, locales-all, git, 
+	libmono-system-numerics-vectors4.0-cil, curl
+Standards-Version: 3.9.6
+Homepage: https://github.com/dotnet/roslyn
+
+Package: msbuild-roslyn
+Architecture: all
+Depends: ${cli:Depends}, ${shlibs:Depends}, ${misc:Depends}, msbuild (>= 15.3), libmono-system-numerics-vectors4.0-cil
+Description: Microsoft C# compiler
+ This is the Microsoft C# (C-Sharp) and VB compiler, a platform-independent
+ compiler which produces CIL (Common Intermediate Language) binary executables.
+ .
+ Mono is a platform for running and developing applications based on the
+ ECMA/ISO Standards. Mono is an open source effort led by Xamarin.
+ Mono provides a complete CLR (Common Language Runtime) including compiler and
+ runtime, which can produce and execute CIL (Common Intermediate Language)
+ bytecode (aka assemblies), and a class library.

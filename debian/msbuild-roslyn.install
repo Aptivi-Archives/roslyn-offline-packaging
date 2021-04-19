@@ -1,0 +1,9 @@
+/usr/bin/
+/usr/lib/mono/4.5/*.dll
+/usr/lib/mono/4.5/*.config
+/usr/lib/mono/4.5/*.exe
+/usr/lib/mono/4.5/*.rsp
+/usr/lib/mono/msbuild/Current/bin/Roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll
+/usr/lib/mono/msbuild/Current/bin/Roslyn/Microsoft.CSharp.Core.targets
+/usr/lib/mono/msbuild/Current/bin/Roslyn/Microsoft.Managed.Core.targets
+/usr/lib/mono/msbuild/Current/bin/Roslyn/Microsoft.VisualBasic.Core.targets

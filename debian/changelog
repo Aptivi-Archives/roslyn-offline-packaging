@@ -1,0 +1,6 @@
+msbuild-roslyn (1:16.9-0ppa1) focal; urgency=medium
+
+  * We're sorry we couldn't release Roslyn 3.7.0 on timely fashion.
+  * As compensation, we've used Visual Studio 2019 version 16.9's Roslyn.
+
+ -- EoflaOE <eoflaoevicecity@gmail.com>  Wed, 07 Apr 2021 20:48:40 +0300
