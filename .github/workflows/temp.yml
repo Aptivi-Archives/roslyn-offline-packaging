@@ -1,0 +1,38 @@
+name: Temp - Clone roslyn submodule and push to repo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Clone roslyn submodule
+        run: git submodule add -b dev16.9 https://github.com/dotnet/roslyn
+        
+      - name: Commit changes
+        run: |
+          git add .
+          git config --local user.email "eoflaoevicecity@gmail.com"
+          git config --local user.name "EoflaOE"
+          git commit -m "Added roslyn submodule"
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_APIKEY }}
+          branch: ${{ github.ref }}
+          
+      - name: Make archive
+        run: |
+          tar cfv ../dotnetroslynrepo.tar .
+          xz -6 --threads=0 ../dotnetroslynrepo.tar
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Roslyn-Repo
+          path: ../dotnetroslynrepo.tar.xz
