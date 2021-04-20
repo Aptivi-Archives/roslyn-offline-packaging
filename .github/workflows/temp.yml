@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Clone roslyn submodule
-        run: git submodule add -b dev16.9 https://github.com/dotnet/roslyn
+        run: git submodule add -b release/dev16.9 https://github.com/dotnet/roslyn
         
       - name: Commit changes
         run: |
