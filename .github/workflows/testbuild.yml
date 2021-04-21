@@ -1,0 +1,26 @@
+name: Test building
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+
+      - name: Install required packages
+        run: |
+          sudo apt update
+          sudo apt install curl locales-all cli-common-dev libunwind8-dev libcurl4-openssl-dev
+        
+      - name: Initialize offline package
+        run: |
+          chmod +x initializeoffline.sh
+          ./initializeoffline.sh
+        
+      - name: Try to build
+        run: ./roslyn/build.sh --configuration Release
