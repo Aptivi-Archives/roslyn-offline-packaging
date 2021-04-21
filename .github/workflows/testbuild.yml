@@ -23,4 +23,4 @@ jobs:
           ./initializeoffline.sh
         
       - name: Try to build
-        run: ./roslyn/build.sh --configuration Release
+        run: HOME=`pwd`/roslyn/nuget ./roslyn/build.sh --configuration Release
