@@ -38,7 +38,7 @@ jobs:
       - name: Build source package
         run: |
           debuild -S -sa
-          debsign
+          debsign ../msbuild-roslyn_16.9.1-0ppa1_source.changes
         
       - name: Push to Launchpad
         run: dput ppa:eofla/msbuild ../msbuild-roslyn_16.9.1-0ppa1_source.changes
