@@ -75,8 +75,8 @@ patch -i offline/offline.patch roslyn/eng/common/tools.sh
 echo "- Restoring packages..."
 echo "  - cd roslyn"
 cd roslyn
-echo "  - HOME=`pwd`/nuget ./restore.sh --configuration Release"
-HOME=`pwd`/nuget ./restore.sh --configuration Release
+echo "  - HOME=`pwd`/nuget ./build.sh --restore --configuration Release"
+HOME=`pwd`/nuget ./build.sh --restore --configuration Release
 if [ "$?" -ne 0 ]; then
 	exit $?
 fi
