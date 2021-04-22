@@ -87,6 +87,8 @@ echo "  - mkdir deps"
 mkdir deps
 echo "  - cp -R ./nuget/.nuget/packages/* ./deps/"
 cp -R ./nuget/.nuget/packages/* ./deps/
+echo "  - cp -R ./artifacts/.nuget/packages/* ./deps/"
+cp -R ./artifacts/.nuget/packages/* ./deps/
 
 # Compressing essential packages
 if [ ${generate_essentials_tar_xz} == true ]; then
