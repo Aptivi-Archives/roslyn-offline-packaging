@@ -1,3 +1,9 @@
+msbuild-roslyn (1:16.9.1-0ppa1) UNRELEASED; urgency=medium
+
+  * Fixed build failure
+
+ -- EoflaOE <eoflaoevicecity@gmail.com>  Thu, 22 Apr 2021 18:13:11 +0300
+
 msbuild-roslyn (1:16.9-0ppa1) focal; urgency=medium
 
   * We're sorry we couldn't release Roslyn 3.7.0 on timely fashion.
