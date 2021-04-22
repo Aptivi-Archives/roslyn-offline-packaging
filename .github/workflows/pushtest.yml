@@ -36,7 +36,9 @@ jobs:
           mv ../debian .
 
       - name: Build source package
-        run: debuild -S -sa
+        run: |
+          debuild -S -sa
+          debsign
         
       - name: Push to Launchpad
         run: dput ppa:eofla/msbuild ../msbuild-roslyn_16.9.1-0ppa1_source.changes
