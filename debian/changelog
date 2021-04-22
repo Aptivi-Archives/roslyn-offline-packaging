@@ -1,4 +1,4 @@
-msbuild-roslyn (1:16.9.1-0ppa1) UNRELEASED; urgency=medium
+msbuild-roslyn (1:16.9.1-0ppa1) focal; urgency=medium
 
   * Fixed build failure
 
