@@ -87,8 +87,6 @@ echo "  - mkdir deps"
 mkdir deps
 echo "  - cp -R ./nuget/.nuget/packages/* ./deps/"
 cp -R ./nuget/.nuget/packages/* ./deps/
-echo "  - cp -R ./artifacts/.nuget/packages/* ./deps/"
-cp -R ./artifacts/.nuget/packages/* ./deps/
 
 # Compressing essential packages
 if [ ${generate_essentials_tar_xz} == true ]; then
@@ -111,7 +109,7 @@ rm -R artifacts
 echo "  - rm -R nuget"
 rm -R nuget
 
-echo "- Build using \"./roslyn/build.sh --configuration Release\" from the \"roslyn\" directory."
+echo "- Build using \"./roslyn/build.sh --restore --configuration Release\" from the \"roslyn\" directory."
 echo "- For Launchpad PPAs and general Ubuntu package builds, change \"preview\" in \"debian/changelog\" to \"focal\" or any Ubuntu codename."
 echo "- You may want to run \"dch -U\" to sign your custom roslyn package changelog."
 echo "- Use \"debuild -S -sa\" to build source package for \"sbuild\"."

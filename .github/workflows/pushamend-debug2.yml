@@ -28,6 +28,13 @@ jobs:
 
       - name: Build source package
         run: debuild -S
+          
+      - name: Setup tmate session for validation
+        uses: mxschmitt/action-tmate@v3
         
       - name: Push to Launchpad
         run: dput ppa:eofla/msbuild ../msbuild-roslyn_16.9.2-0ppa2_source.changes
+          
+      - name: Setup tmate session for debug failure
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3

@@ -1,0 +1,34 @@
+name: Test building
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+
+      - name: Install required packages
+        run: |
+          sudo apt update
+          sudo apt install curl locales-all cli-common-dev libunwind8-dev libcurl4-openssl-dev
+        
+      - name: Initialize offline package
+        run: |
+          sudo ip netns add no-net
+          chmod +x initializeoffline.sh
+          ./initializeoffline.sh
+          
+      - name: Setup tmate session for validation
+        uses: mxschmitt/action-tmate@v3
+        
+      - name: Try to build
+        run: sudo ip netns exec no-net ./roslyn/build.sh --restore --configuration Release
+          
+      - name: Setup tmate session for debug failure
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3

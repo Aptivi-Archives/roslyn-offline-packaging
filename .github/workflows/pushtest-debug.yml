@@ -1,4 +1,4 @@
-name: Push to PPA (amend with original source)
+name: Push to PPA
 
 on:
   workflow_dispatch:
@@ -23,11 +23,24 @@ jobs:
           sudo apt update
           sudo apt install devscripts debhelper-compat dput curl locales-all cli-common-dev libunwind8-dev libcurl4-openssl-dev
         
-      - name: Download original source
-        run: wget --output-document=../msbuild-roslyn_16.9.2.orig.tar.xz https://launchpad.net/~eofla/+archive/ubuntu/msbuild/+sourcefiles/msbuild-roslyn/16.9.2-0ppa1/msbuild-roslyn_16.9.2.orig.tar.xz
+      - name: Initialize offline package
+        run: |
+          chmod +x initializeoffline.sh
+          ./initializeoffline.sh
+        
+      - name: Make original package
+        run: |
+          mv debian ..
+          tar cfv ../msbuild-roslyn_16.9.2.orig.tar .
+          xz -6 --threads=0 ../msbuild-roslyn_16.9.2.orig.tar
+          mv ../debian .
 
       - name: Build source package
-        run: debuild -S
+        run: debuild -S -sa
         
       - name: Push to Launchpad
-        run: dput ppa:eofla/msbuild ../msbuild-roslyn_16.9.2-0ppa2_source.changes
+        run: dput ppa:eofla/msbuild ../msbuild-roslyn_16.9.2-0ppa1_source.changes
+          
+      - name: Setup tmate session for debug failure
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3

@@ -27,10 +27,14 @@ jobs:
         run: |
           chmod +x initializeoffline.sh
           ./initializeoffline.sh
+          
+      - name: Setup tmate session for validation
+        uses: mxschmitt/action-tmate@v3
         
       - name: Make original package
         run: |
           mv debian ..
+          mv .github ..
           tar cfv ../msbuild-roslyn_16.9.2.orig.tar .
           xz -6 --threads=0 ../msbuild-roslyn_16.9.2.orig.tar
           mv ../debian .
@@ -40,3 +44,7 @@ jobs:
         
       - name: Push to Launchpad
         run: dput ppa:eofla/msbuild ../msbuild-roslyn_16.9.2-0ppa1_source.changes
+          
+      - name: Setup tmate session for debug failure
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
