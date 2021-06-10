@@ -1,20 +1,20 @@
---- tools.sh.orig	2021-04-14 09:02:00.014525900 +0300
-+++ tools.sh	2021-04-14 09:01:29.878177529 +0300
-@@ -198,7 +198,7 @@
-   if [[ "$#" -ge "5" ]]; then
+--- tools.sh.orig	2021-06-10 14:09:23.192852000 +0300
++++ tools.sh	2021-06-10 14:11:00.097282250 +0300
+@@ -200,7 +200,7 @@
+   if [[ "$#" -ge "5" ]] && [[ "$5" != 'false' ]]; then
      skipNonVersionedFilesArg="--skip-non-versioned-files"
    fi
 -  bash "$install_script" --version $version --install-dir "$root" $archArg $runtimeArg $skipNonVersionedFilesArg || {
 +  bash "$install_script" --version $version --install-dir "$root" --azure-feed "$root/dep" --uncached-feed "$root/dep" $archArg $runtimeArg $skipNonVersionedFilesArg || {
      local exit_code=$?
-     Write-PipelineTelemetryError -category 'InitializeToolset' "Failed to install dotnet SDK from public location (exit code '$exit_code')."
+     echo "Failed to install dotnet SDK from public location (exit code '$exit_code')."
  
-@@ -222,7 +222,7 @@
-       fi
+@@ -223,7 +223,7 @@
+     fi
  
-       if [[ -n "$runtimeSourceFeed" || -n "$runtimeSourceFeedKey" ]]; then
--        bash "$install_script" --version $version --install-dir "$root" $archArg $runtimeArg $skipNonVersionedFilesArg $runtimeSourceFeed $runtimeSourceFeedKey || {
-+        bash "$install_script" --version $version --install-dir "$root" --azure-feed "$root/dep" --uncached-feed "$root/dep" $archArg $runtimeArg $skipNonVersionedFilesArg $runtimeSourceFeed $runtimeSourceFeedKey || {
-           local exit_code=$?
-           Write-PipelineTelemetryError -category 'InitializeToolset' "Failed to install dotnet SDK from custom location '$runtimeSourceFeed' (exit code '$exit_code')."
-           ExitWithExitCode $exit_code
+     if [[ -n "$runtimeSourceFeed" || -n "$runtimeSourceFeedKey" ]]; then
+-      bash "$install_script" --version $version --install-dir "$root" $archArg $runtimeArg $skipNonVersionedFilesArg $runtimeSourceFeed $runtimeSourceFeedKey || {
++      bash "$install_script" --version $version --install-dir "$root" --azure-feed "$root/dep" --uncached-feed "$root/dep" $archArg $runtimeArg $skipNonVersionedFilesArg $runtimeSourceFeed $runtimeSourceFeedKey || {
+         local exit_code=$?
+         Write-PipelineTelemetryError -category 'InitializeToolset' "Failed to install dotnet SDK from custom location '$runtimeSourceFeed' (exit code '$exit_code')."
+         ExitWithExitCode $exit_code
