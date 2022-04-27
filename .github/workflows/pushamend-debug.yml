@@ -25,8 +25,8 @@ jobs:
         
       - name: Download original source
         run: |
-          wget --output-document=../msbuild-roslyn_16.10.orig.tar.xz https://launchpad.net/~eofla/+archive/ubuntu/msbuild/+sourcefiles/msbuild-roslyn/16.10-0ppa1/msbuild-roslyn_16.10.orig.tar.xz
-          tar xf ../msbuild-roslyn_16.10.orig.tar.xz ./roslyn
+          wget --output-document=../msbuild-roslyn_17.1.orig.tar.xz https://launchpad.net/~eofla/+archive/ubuntu/msbuild/+sourcefiles/msbuild-roslyn/17.1-0ppa1/msbuild-roslyn_17.1.orig.tar.xz
+          tar xf ../msbuild-roslyn_17.1.orig.tar.xz ./roslyn
           mv .github ..
           ./initializeamend.sh
           
@@ -37,7 +37,7 @@ jobs:
         run: debuild -S
         
       - name: Push to Launchpad
-        run: dput ppa:eofla/msbuild ../msbuild-roslyn_16.10-0ppa2_source.changes
+        run: dput ppa:eofla/msbuild ../msbuild-roslyn_17.1-0ppa2_source.changes
           
       - name: Setup tmate session for debug failure
         if: ${{ failure() }}
