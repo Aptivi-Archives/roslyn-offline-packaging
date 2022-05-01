@@ -1,3 +1,9 @@
+msbuild-roslyn (1:17.1-0ppa3) jammy; urgency=medium
+
+  * Fixed FTBFS
+
+ -- EoflaOE <eoflaoevicecity@gmail.com>  Sun, 01 May 2022 17:33:20 +0300
+
 msbuild-roslyn (1:17.1-0ppa2) jammy; urgency=medium
 
   * Fixed missing file Microsoft.Managed.Core.CurrentVersions.targets

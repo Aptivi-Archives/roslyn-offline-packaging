@@ -50,6 +50,7 @@ override_dh_auto_install:
 	cp roslyn/artifacts/bin/Microsoft.Build.Tasks.CodeAnalysis/Release/net472/Microsoft.Build.Tasks.CodeAnalysis.dll debian/tmp/usr/lib/mono/msbuild/Current/bin/Roslyn
 	cp roslyn/artifacts/bin/Microsoft.Build.Tasks.CodeAnalysis/Release/net472/Microsoft.CSharp.Core.targets debian/tmp/usr/lib/mono/msbuild/Current/bin/Roslyn
 	cp roslyn/artifacts/bin/Microsoft.Build.Tasks.CodeAnalysis/Release/net472/Microsoft.Managed.Core.targets debian/tmp/usr/lib/mono/msbuild/Current/bin/Roslyn
+	cp roslyn/artifacts/bin/Microsoft.Build.Tasks.CodeAnalysis/Release/net472/Microsoft.Managed.Core.CurrentVersions.targets debian/tmp/usr/lib/mono/msbuild/Current/bin/Roslyn
 	cp roslyn/artifacts/bin/Microsoft.Build.Tasks.CodeAnalysis/Release/net472/Microsoft.VisualBasic.Core.targets debian/tmp/usr/lib/mono/msbuild/Current/bin/Roslyn
 	chmod -R 644 debian/tmp/usr/lib/mono/4.5/.
 	chmod -R 644 debian/tmp/usr/lib/mono/msbuild/Current/bin/Roslyn/.
