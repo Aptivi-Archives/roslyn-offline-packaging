@@ -34,7 +34,7 @@ jobs:
         run: rm initializeamend.sh
 
       - name: Build source package
-        run: debuild -S
+        run: debuild -S --no-lintian
           
       - name: Setup tmate session for validation
         uses: mxschmitt/action-tmate@v3
