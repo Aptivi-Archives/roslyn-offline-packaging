@@ -6,4 +6,5 @@
 /usr/lib/mono/msbuild/Current/bin/Roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll
 /usr/lib/mono/msbuild/Current/bin/Roslyn/Microsoft.CSharp.Core.targets
 /usr/lib/mono/msbuild/Current/bin/Roslyn/Microsoft.Managed.Core.targets
+/usr/lib/mono/msbuild/Current/bin/Roslyn/Microsoft.Managed.Core.CurrentVersions.targets
 /usr/lib/mono/msbuild/Current/bin/Roslyn/Microsoft.VisualBasic.Core.targets

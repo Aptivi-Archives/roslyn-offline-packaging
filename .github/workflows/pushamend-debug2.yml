@@ -29,12 +29,9 @@ jobs:
           tar xf ../msbuild-roslyn_17.1.orig.tar.xz ./roslyn
           mv .github ..
           ./initializeamend.sh
-          
-      - name: Remove in next major version
-        run: rm initializeamend.sh
 
       - name: Build source package
-        run: debuild -S --no-lintian
+        run: debuild --no-lintian -S
           
       - name: Setup tmate session for validation
         uses: mxschmitt/action-tmate@v3

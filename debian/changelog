@@ -1,3 +1,9 @@
+msbuild-roslyn (1:17.1-0ppa2) jammy; urgency=medium
+
+  * Fixed missing file Microsoft.Managed.Core.CurrentVersions.targets
+
+ -- EoflaOE <eoflaoevicecity@gmail.com>  Sun, 01 May 2022 16:48:16 +0300
+
 msbuild-roslyn (1:17.1-0ppa1) jammy; urgency=medium
 
   * Updated to 17.1
